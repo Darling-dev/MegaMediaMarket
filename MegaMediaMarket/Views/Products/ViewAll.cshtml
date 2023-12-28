@@ -1,0 +1,177 @@
+﻿@model List<SiteASPCOm.Models.Domain.Product>
+@{
+    ViewData["Title"] = "View All Products";
+}
+
+@{
+    Layout = "_Layout";
+}
+@{
+    string username = User.Identity.Name;
+}
+        <div class="profile__bg">
+            <div class="profile__container">
+                <div class="profile__content">
+                    <div class="profile__content-box__left">
+
+                        <div class="profile__menu">
+                            <ul>
+                                <li class="active">
+                                    <a href="/profile/history">
+                                <img src="~/tpl/static/media/profile/clocks.svg"  asp-append-version="true" class="js-inject">
+                                <span>View Products</span>
+                            </a>
+                                </li>
+                                <li class="">
+                                    <a href="/Products/Add">
+                                <img src="~/tpl/static/media/profile/bonuses.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add Product</span>
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="/UserAuthentication/ChangePassword">
+                                <img src="~/tpl/static/media/profile/settings.svg"  asp-append-version="true" class="js-inject">
+                                <span>Account settings</span>
+                            </a>
+                                </li>
+                                                                </li>                                
+                                <li>
+                                    <a href="/Products/ShoppingCart">
+                                <img src="~/tpl/static/media/profile/cart.svg" asp-append-version="true" class="js-inject">
+                                <span>Cart</span>
+                            </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="profile__info">
+                            <div>
+                                <span>@username</span>
+                            </div>
+                            <div class="profile__info-exit">
+                                <a href="/UserAuthentication/Logout"><img src="~/tpl/static/media/profile/exit.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__content-box__right">
+                        <h1 class="h1">View All Products</h1>
+                        <div class="profile__content-box__content">
+                            <table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Link</th>
+            <th>Price</th>
+            <th>Platform</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td style="color: white;">@product.Name</td>
+                <td style="color: white;">@product.Link</td>
+                <td style="color: white;">@product.Price</td>
+                <td style="color: white;">@product.Platform</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-info">View</a>
+                    <a asp-action="Update" asp-route-id="@product.Id" class="btn btn-primary">Edit</a>
+                    <form style="all:unset" asp-action="Delete" asp-controller="Products" method="post" class="inline-form">
+                        <input type="hidden" name="Id" value="@product.Id" />
+                        <button style="margin-top: 0px; height: 40px; width: 78px; border-radius: 4px;" type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<style>
+    /* Base table styles */
+    .table {
+        width: 100%;
+        margin-bottom: 1rem;
+        color: #fff;
+        background-color: #0f1014;
+        border-collapse: separate; /* Allows for rounded corners */
+        border-spacing: 0; /* Removes default spacing */
+        border-radius: 8px; /* Rounded corners for the table */
+        overflow: hidden; /* Ensures the content respects the border radius */
+    }
+
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #35b18e;
+    }
+
+    .table thead th {
+        vertical-align: bottom;
+        border-bottom: 2px solid #35b18e;
+    }
+
+    .table tbody + tbody {
+        border-top: 2px solid #35b18e;
+    }
+
+    /* Header styles */
+    .table thead th {
+        color: #fff;
+        background-color: #35b18e;
+        border-color: #35b18e;
+    }
+
+    /* Button styles */
+    .btn {
+        color: #fff;
+        text-align: center;
+        vertical-align: middle;
+        user-select: none;
+        background-color: #35b18e;
+        border: 1px solid #35b18e;
+        padding: 0.575rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 4px; /* Rounded corners for buttons */
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    }
+
+    .btn:hover {
+        background-color: #2a9d8f;
+        border-color: #2a9d8f;
+    }
+
+    /* Adjustments for smaller screens */
+    @@media (max-width: 768px) {
+        .table {
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+    }
+        .table th, .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #35b18e;
+        max-width: 200px; /* Example max width */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    /* Specific column widths */
+    .table th:nth-child(1), .table td:nth-child(1) { max-width: 150px; padding-left: 10px; } /* First column */
+    .table th:nth-child(2), .table td:nth-child(2) { max-width: 200px; } /* Second column */
+    .table th:nth-child(3), .table td:nth-child(3) { max-width: 100px; padding-right: 10px; } /* Third column */
+    /* Add more as needed for additional columns */
+</style>
+
+

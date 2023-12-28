@@ -1,0 +1,192 @@
+﻿@model SiteASPCOm.Models.UpdateProductViewModel
+
+@{
+    ViewData["Title"] = "Edit Product";
+}
+
+        <div class="profile__bg">
+            <div class="profile__container">
+                <div class="profile__content">
+                    <div class="profile__content-box__left">
+
+                        <div class="profile__menu">
+                            <ul>
+                                <li class="">
+                                    <a href="/profile/history">
+                                <img src="~/tpl/static/media/profile/clocks.svg"  asp-append-version="true" class="js-inject">
+                                <span>Purchase History</span>
+                            </a>
+                                </li>
+                                <li class="">
+                                    <a href="/Dashboard/Panel">
+                                <img src="~/tpl/static/media/profile/bonuses.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add Product</span>
+                            </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/Dashboard/Display">
+                                <img src="~/tpl/static/media/profile/settings.svg"  asp-append-version="true" class="js-inject">
+                                <span>Account settings</span>
+                            </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="profile__info">
+                            <div>
+                                <span></span>
+                            </div>
+                            <div class="profile__info-exit">
+                                <a href="/UserAuthentication/Logout"><img src="~/tpl/static/media/profile/exit.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__content-box__right">
+                        <h1 class="h1">Account settings</h1>
+                        <div class="profile__content-box__content">
+
+                    @Html.ValidationSummary()
+                    @Html.AntiForgeryToken()
+<form asp-action="Update" method="post" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Link"></label>
+        <input asp-for="Link" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Platform"></label>
+        <input asp-for="Platform" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="CardImagePath"></label>
+        <input asp-for="CardImagePath" readonly="readonly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewCardImage">Card Image</label>
+        <input type="file" class="form-control" asp-for="NewCardImage" />
+        @if (!string.IsNullOrEmpty(Model.CardImagePath))
+        {
+      <div class="functional__media" style="margin-top: 60px;margin-bottom: 60px;">
+        <p class="functional__media_title">Screenshots</p>
+        <div class="screenshots__block">
+            <img src="@Url.Content("~/sitefiles/Categories/" + Model.CardImagePath)"   class="imgFullItem" width="200" height="100">
+        </div>
+      </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="BannerImagePath"></label>
+        <input asp-for="BannerImagePath" readonly="readonly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewCardImage">Card Image</label>
+        <input type="file" class="form-control" asp-for="NewBannerImage" />
+        @if (!string.IsNullOrEmpty(Model.BannerImagePath))
+        {
+      <div class="functional__media" style="margin-top: 60px;margin-bottom: 60px;">
+        <p class="functional__media_title">Screenshots</p>
+        <div class="screenshots__block">
+            <img src="@Url.Content("~/sitefiles/Categories/" + Model.BannerImagePath)"   class="imgFullItem" width="200" height="100">
+        </div>
+      </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="ScrImagePath"></label>
+        <input asp-for="ScrImagePath" readonly="readonly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewCardImage">Card Image</label>
+        <input type="file" class="form-control" asp-for="NewScrImage" />
+        @if (!string.IsNullOrEmpty(Model.ScrImagePath))
+        {
+      <div class="functional__media" style="margin-top: 60px;margin-bottom: 60px;">
+        <p class="functional__media_title">Screenshots</p>
+        <div class="screenshots__block">
+            <img src="@Url.Content("~/sitefiles/Categories/" + Model.ScrImagePath)"   class="imgFullItem" width="200" height="100">
+        </div>
+      </div>
+        }
+    </div>
+    <div class="form-group">
+        <label asp-for="ScrImageAddPath"></label>
+        <input asp-for="ScrImageAddPath" readonly="readonly" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewCardImage">Card Image</label>
+        <input type="file" class="form-control" asp-for="NewScrImageAdd" />
+        @if (!string.IsNullOrEmpty(Model.ScrImageAddPath))
+        {
+      <div class="functional__media" style="margin-top: 60px;margin-bottom: 60px;">
+        <p class="functional__media_title">Screenshots</p>
+        <div class="screenshots__block">
+            <img src="@Url.Content("~/sitefiles/Categories/" + Model.ScrImageAddPath)"   class="imgFullItem" width="200" height="100">
+        </div>
+      </div>
+        }
+    </div>
+    <!-- Repeat for other images -->
+
+    <button type="submit" class="btn btn-success">Update</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+                <style>
+/* Style for labels */
+label {
+    display: block;
+    color: #c2c6d7;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Style for file input fields */
+input[type="file"] {
+    background-color: #0f1014;
+    color: #c2c6d7;
+    border: 1px solid #c2c6d7;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 4px;
+    width: 100%;
+    margin-bottom: 10px; /* Space between each input field */
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #4a4e69; /* Updated color */
+    color: #c2c6d7;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #6b6e95; /* Slightly lighter shade for hover */
+}
+
+        </style>

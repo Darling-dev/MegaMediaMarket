@@ -1,0 +1,43 @@
+﻿@model SiteASPCOm.Models.DTO.RegistrationModel
+@{
+    Layout = "_Layout";
+}
+
+        <div class="login_bg">
+            <div class="login_page-wrapper">
+                <center>
+                    <a href="/">
+                        <div class="header__logo" style="margin-right:0;"></div>
+                    </a>
+                    <h1>Create your account</h1>
+                    @Html.ValidationSummary()
+                    <form asp-action="Registration" method="post" id="loginForm" class="login_form">
+                        <label asp-for="FirstName">First Name</label>
+                        <input asp-for="FirstName" asp-validation-for="FirstName" type="text" required="" id="email" placeholder="Enter First Name">
+                        <label asp-for="LastName">Last Name</label>
+                        <input asp-for="LastName" asp-validation-for="LastName" type="text" required="" id="email" placeholder="Enter Last Name">
+                        <label asp-for="Email">Email address</label>
+                        <input asp-for="Email" asp-validation-for="Email" type="text" required="" id="email" placeholder="Enter email address">
+                        <label asp-for="Username">Username</label>
+                        <input asp-for="Username" asp-validation-for="Username" type="text" required="" id="email" placeholder="Enter Username">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" asp-validation-for="Password" type="password" required="" id="password" placeholder="••••••••••">
+                        <label asp-for="PasswordConfirm">Password confirm</label>
+                        <input asp-for="PasswordConfirm" asp-validation-for="PasswordConfirm" type="password" required="" id="password" placeholder="••••••••••">
+                        <span class="error_info">User with this email already exists</span>
+                        @if (TempData["msg"] != null)
+                        {
+                            <div class="form-group header__catalog">
+                                <span class="text-info">@TempData["msg"]</span>
+                            </div>
+                        }
+                        <button type="submit" class="loginProfileMetrika">Sing up</button>
+                        <a href="/profile/repair" class="login_subbtn">Forgot password?</a>
+                    </form><br><br>
+                    <div class="small_login-info">
+                        <span>Already have an account?</span> <a href="/UserAuthentication/Login">Sing in</a>
+                    </div>
+                    <br><br>
+                </center>
+            </div>
+        </div>

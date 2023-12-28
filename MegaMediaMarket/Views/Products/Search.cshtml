@@ -1,0 +1,71 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization
+@model List<SiteASPCOm.Models.Domain.Product>
+@inject IViewLocalizer Localizer
+@{
+    Layout = "_Layout";
+}
+		<section>
+		  <section class="select">
+		    <div class="select__container">
+		      <div class="nav_wrapper">
+		        <div class="nav__scroll">
+		          <div class="select__navigation nav_block">
+		            <a class="select__link" href="/">
+		              <p class="select__navigation_text">@Localizer["Main"]</p>
+		            </a>
+		            <img class="select__arrow_gray" src="/tpl/static/media/select__arrow_gray.9aba3756.svg" alt="arrow">
+		            <a href="javascript:void(0)" style="cursor:default;" class="select__link">
+		              <p class="select__navigation_text"> @Localizer["Catalog"] </p>
+		            </a>
+		          </div>
+		        </div>
+		      </div>
+		      <div class="select__wrap_grey" style="padding-bottom: 0;">
+		        <div class="select__wrapper_center_gray">
+		          <div class="select__wrapper_title">
+		            <p class="select__title">@Localizer["Catalog"]</p>
+		          </div>
+		          <p class="select__subtitle">@Localizer["CatalogDesc"]</p>
+		        </div>
+		      </div>
+		      <div class="search_catalog">
+				  <div class="select__wrapper">
+				<form method="get" asp-action="Search" class="main__button_search searchBtn catalog_search">
+					<img src="/tpl/static/media/search.svg">&nbsp;&nbsp; <input style="all: unset;"  onchange="this.form.submit();"  type="text" placeholder="@Localizer["Search"]" name="SearchString" value="@ViewData["CurrentFilter"]" aria-label="Search" />
+				</form>
+				  </div>
+		      </div>
+		    </div>
+		  </section>
+		  <section class=""></section>
+		  <div class="select__games_width">
+		    <div class="select__games"> @foreach (var product in Model) { <div class="select__games_width">
+		        <a class="games__link" href='@Url.Action("Details", "Products", new { id = product.Id })'>
+		          <div class="games__wrap">
+		            <div class="new_games-img">
+		              <div class="new_games-imgBefore"></div>
+		              <img class="games__image" src="/sitefiles/Categories/@product.CardImagePath" alt="Escape From Tarkov" width="318" height="380">
+		              <div class="new_games-footer d-flex ai-c">
+		                <div>
+		                  <div class="games__wrapper_title-wrap mb-0 pb-0">
+		                    <div class="new_games-logo">
+		                      <img class="games__logo" src="/sitefiles/Categories/a3K4VFAMH29JRVdjm7oUhEbY4HRxrd5D.png" alt="Escape 
+															<span>From</span> Tarkov">
+		                    </div>
+		                    <p class="games__logo_title">@product.Name <br>
+		                      <small></small>
+		                    </p>
+		                  </div>
+		                </div>
+		                <div class="ml-auto">
+		                  <p class="games__wrapper_subtitle new_games-price">
+		                    <small>@Localizer["PriceMin"]</small>
+		                    <br> @product.Price$
+		                  </p>
+		                </div>
+		              </div>
+		            </div>
+		          </div>
+		        </a>
+		      </div> }
+		</section>

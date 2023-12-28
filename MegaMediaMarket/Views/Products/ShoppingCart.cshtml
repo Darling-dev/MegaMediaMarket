@@ -1,0 +1,123 @@
+﻿@using SiteASPCOm.Models.Domain
+@model IEnumerable<ShoppingCartItem>
+@{
+    Layout = "_Layout";
+}
+@{
+    string username = User.Identity.Name;
+}
+        <div class="profile__bg">
+            <div class="profile__container">
+                <div class="profile__content">
+                    <div class="profile__content-box__left">
+
+                        <div class="profile__menu">
+                            <ul>
+                                <li>
+                                    <a href="/Products/ViewAll">
+                                <img src="~/tpl/static/media/profile/clocks.svg"  asp-append-version="true" class="js-inject">
+                                <span>View Products</span>
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="/Products/Add">
+                                <img src="~/tpl/static/media/profile/bonuses.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add Product</span>
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="/UserAuthentication/ChangePassword">
+                                <img src="~/tpl/static/media/profile/settings.svg"  asp-append-version="true" class="js-inject">
+                                <span>Account settings</span>
+                            </a>
+                                </li>                                
+                                <li class="active">
+                                    <a href="/Products/ShoppingCart">
+                                <img src="~/tpl/static/media/profile/cart.svg" asp-append-version="true" class="js-inject">
+                                <span>Cart</span>
+                            </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="profile__info">
+                            <div>
+                                <span>@username</span>
+                            </div>
+                            <div class="profile__info-exit">
+                                <a href="/UserAuthentication/Logout"><img src="~/tpl/static/media/profile/exit.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__content-box__right">
+                        <h1 class="h1">Cart</h1>
+                        <div class="profile__content-box__content">
+                                @foreach (var item in Model)
+{
+
+<div class="cart-item">
+    <div class="cart-item-details">
+        <p class="item-name">@item.Name</p>
+        <p class="item-quantity">Quantity: @item.Quantity</p>
+        <p class="item-price">Price: @item.Price</p>
+        <div class="cart-item-buttons">
+            <a asp-action="Details" asp-route-id="@item.ProductId" class="cart-button view-button">View</a>
+            <a href="@item.Link" class="cart-button view-button">Buy</a>
+            <form asp-action="RemoveFromCart" asp-controller="Products" style="display: contents;" method="post" class="inline-form">
+    <input type="hidden" name="productId" value="@item.ProductId" />
+    <button type="submit" style="height: 34px; border-radius: 5px; width: 75px;" class="btn btn-danger">Delete</button>
+</form>
+        </div>
+    </div>
+</div>
+
+
+
+     <hr>
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+ .cart-item {
+    background-color: #0f1014;
+    /*color: #c2c6d7;*/
+    padding: 15px;
+    margin-bottom: 15px; /* Space between items */
+    border-radius: 5px; /* Optional for rounded corners */
+}
+
+.cart-item-details p {
+    font-size: 1.2em; /* Larger text */
+    margin: 5px 0; /* Spacing between text */
+}
+
+.cart-item-buttons {
+    margin-top: 10px;
+}
+
+.cart-button {
+    display: inline-block;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-right: 10px; /* Space between buttons */
+}
+
+.view-button {
+    background-color: #35b18e;
+}
+
+.buy-button {
+    background-color: #1a8e5f; /* Different color for the buy button */
+}
+
+.cart-button:hover {
+    opacity: 0.9; /* Slight change on hover */
+}
+
+
+        </style>

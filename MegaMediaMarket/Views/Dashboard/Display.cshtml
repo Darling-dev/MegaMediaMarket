@@ -1,0 +1,101 @@
+﻿@model SiteASPCOm.Models.DTO.ChangePasswordModel
+
+@{
+    Layout = "_Layout";
+}
+@{
+    string username = User.Identity.Name;
+}
+        <div class="profile__bg">
+            <div class="profile__container">
+                <div class="profile__content">
+                    <div class="profile__content-box__left">
+
+                        <div class="profile__menu">
+                            <ul>
+                                <li class="">
+                                    <a href="/Products/ViewAll">
+                                <img src="~/tpl/static/media/profile/clocks.svg"  asp-append-version="true" class="js-inject">
+                                <span>View Products</span>
+                            </a>
+                                </li>
+                                <li class="">
+                                    <a href="/Products/Add">
+                                <img src="~/tpl/static/media/profile/bonuses.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add Product</span>
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="/UserAuthentication/ChangePassword">
+                                <img src="~/tpl/static/media/profile/settings.svg"  asp-append-version="true" class="js-inject">
+                                <span>Account settings</span>
+                            </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="profile__info">
+                            <div>
+                                <span>@username</span>
+                            </div>
+                            <div class="profile__info-exit">
+                                <a href="/UserAuthentication/Logout"><img src="~/tpl/static/media/profile/exit.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__content-box__right">
+                        <h1 class="h1">Account settings</h1>
+                        <div class="profile__content-box__content">
+
+
+                                <input type="hidden" name="_csrf" value="i5j5OCESvWASf5b41a1iEoQlFq3_aeZgwCmyf9DmbvTcz5cMU36JMEIbpqG01AxGtWpi3asdkDP2HoYNvt46hw==" />
+
+                                <h2 class="h2">Basic Info</h2>
+
+                                <div class="flexbox">
+                                    <div class="w-50">
+                                        <label>Email address</label>
+                                        <input type="text" name="Users[email]" class="form-control " value="@username">
+                                    </div>
+                                    <div class="w-50">
+                                        <label>Nickname</label>
+                                        <input type="text" name="Users[name]" class="form-control " value="">
+                                    </div>
+                                </div>
+                                <hr>
+                                <h2 class="h2">Change password</h2>
+                                                            <form asp-action="ChangePassword" method="post">
+                                <div class="flexbox">
+                                    <div class="w-50 form-group">
+                                        <label>Current password</label>
+                                        <input type="password" asp-for="CurrentPassword" name="pwwdnow" class="form-control " placeholder="••••••••••">
+                                        <span class="text-danger" asp-validation-for="CurrentPassword"></span>
+                                    </div>
+                                    <div class="w-50 form-group">
+                                        <label>New password</label>
+                                        <input type="password" asp-for="NewPassword" name="pwwdnew" class="form-control " placeholder="••••••••••">
+                                        <span class="text-danger" asp-validation-for="NewPassword"></span>
+                                    </div>                                    
+                                    <div class="w-50 form-group">
+                                        <label>Confirm password</label>
+                                        <input type="password" asp-for="PasswordConfirm" name="pwwdnew" class="form-control " placeholder="••••••••••">
+                                        <span class="text-danger" asp-validation-for="PasswordConfirm"></span>
+                                    </div>
+                                </div>
+                                @if (TempData["msg"] != null)
+                                {
+                                    <div class="form-group">
+                                       <span class="text-info">@TempData["msg"]</span>
+                                    </div>
+                                }
+
+
+                                <button type="submit" class="btn btn-block btn-dark btn-md">Save</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

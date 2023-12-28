@@ -1,0 +1,184 @@
+﻿@model SiteASPCOm.Models.Domain.Product 
+@{ Layout = "_Layout"; } 
+<section class="functional">
+  <div class="functional__container">
+    <div class="functional__container-bg">
+      <div class="select_wrapper-new">
+        <div class="nav_wrapper">
+          <div class="nav__scroll">
+            <div class="select__navigation nav_block">
+              <a class="select__link" href="/">
+                <p class="select__navigation_text">Main</p>
+              </a>
+              <img class="select__arrow_gray" src="/tpl/static/media/select__arrow_gray.9aba3756.svg" alt="arrow">
+              <a class="select__link" href="/catalog">
+                <p class="select__navigation_text"> Catalog </p>
+              </a>
+              <img class="select__arrow_gray" src="/tpl/static/media/select__arrow_gray.9aba3756.svg" alt="arrow">
+              <a href="javascript:void(0)" style="cursor:default;" class="select__link">
+                <p class="select__navigation_text"> @Html.DisplayFor(model => model.Name) </p>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="d-xl-flex new__product-wrapper">
+    <div class="w-xl-50 mt-xl-150">
+      <div class="functional__top">
+        <div class="functional__name_wrap">
+          <div class="functional__info_wrap">
+            <h1 class="functional__title">@Html.DisplayFor(model => model.Name)</h1>
+            <div class="functional__name_wrapper">
+              <div class="functional__name_wrapper_title">
+                <img class="functional__image" src="/sitefiles/Categories/a3K4VFAMH29JRVdjm7oUhEbY4HRxrd5D.png" alt="Windows">
+                <p class="functional__text">Windows</p>
+              </div>
+              <div class="undetected">
+                <div class="undetected__circle"></div>
+                <p class="undetected__text">Download</p>
+              </div>
+              <div class="advantage">
+                <p class="advantage__text">Software</p>
+              </div>
+              <div class="advantage">
+                <p class="advantage__text"> Digital</p>
+              </div>
+            </div>
+            <p class="functional__description_title">Description</p>
+            <div class="functional__description_subtitle" style="color:#9296a9;">
+              <p>@Html.DisplayFor(model => model.Description)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="functional__system">
+        <h2 class="functional__system_title">System Requirements</h2>
+        <div class="functional__system_wrap-box">
+          <div class="functional__system_wrap">
+            <img class="functional__system_logo" src="/tpl/static/media/supported_os.8ed37107.svg" alt="OS">
+            <div class="functional__system_wrapper">
+              <h3 class="functional__system_text">Supported OCs</h3>
+              <div class="functional__system_wrapper_box">
+                <p class="functional__system_subtitle"> Windows 10 (2004-22H2) </p>
+              </div>
+            </div>
+          </div>
+          <div class="functional__system_wrap">
+            <img class="functional__system_logo" src="/tpl/static/media/supported_processors.108b3397.svg" alt="processors">
+            <div class="functional__system_wrapper">
+              <h3 class="functional__system_text">Supported CPUs</h3>
+              <div class="functional__system_wrapper_box">
+                <p class="functional__system_subtitle">Intel</p>
+                <p class="functional__system_subtitle">AMD</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="add-to-cart-form">
+
+
+            <div class="functional__system_wrap-box">
+          <div class="functional__system_wrap">
+            <div class="functional__system_wrapper">
+
+            </div>
+          </div>
+          <div class="functional__system_wrap" style="justify-content: center;">
+<form asp-controller="Products" asp-action="AddToCart" method="post" class="add-to-cart-form">
+    <input type="hidden" name="productId" value="@Model.Id" />
+    <div class="quantity-input">
+        <input style="color:#fff" type="number" name="quantity" value="1" min="1" />
+    </div>
+    <input type="submit" value="Add to Cart" class="cart-button add-to-cart-button" />
+</form>
+          </div>
+        </div>
+
+<style>
+.add-to-cart-form {
+    background-color: #0f1014;
+    color: #fff;
+    padding: 15px;
+    margin-bottom: 15px; /* Space between form and other elements */
+    border-radius: 5px; /* Optional for rounded corners */
+}
+
+.quantity-input {
+    margin-bottom: 10px;
+}
+
+.quantity-input input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #c2c6d7;
+    background-color: #0f1014;
+    color: #c2c6d7;
+}
+
+.cart-button.add-to-cart-button {
+    background-color: #00bf89;
+    color: #fff;
+    padding: 8px 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+}
+
+.cart-button.add-to-cart-button:hover {
+    opacity: 0.9; /* Slight change on hover */
+}
+
+</style>
+</div>
+      </div>
+    </div>
+    <div class="w-xl-50 mt-xl-150 product__right-block">
+      <img src="/sitefiles/Categories/@Html.DisplayFor(model => model.BannerImagePath)" class="d-block imgFullItem" width="200" height="100">
+      <div class="functional__media" style="margin-top: 60px;margin-bottom: 60px;">
+        <p class="functional__media_title">Screenshots</p>
+        <div class="screenshots__block">
+          <a href="/sitefiles/Categories/@Html.DisplayFor(model => model.ScrImagePath)" data-fancybox="screenshots" class="screenshots__block-image">
+            <img src="/sitefiles/Categories/@Html.DisplayFor(model => model.ScrImagePath)"   class="imgFullItem" width="200" height="100">
+          </a>
+          <a href="/sitefiles/Categories/@Html.DisplayFor(model => model.ScrImageAddPath)" data-fancybox="screenshots" class="screenshots__block-image">
+            <img src="/sitefiles/Categories/@Html.DisplayFor(model => model.ScrImageAddPath)"   class="imgFullItem" width="200" height="100">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="new__product-wrapper prevnext-wrapper">
+  </div>
+  <div class="sub__container">
+    <div class="sub__bg">
+      <p class="sub__title">Subscription plans</p>
+      <div class="sub_tabs">
+        <div class="sub_tab active" data-tab="1">
+          <div class="sub__wrap">
+            <div class="sub__wrapper sub__link " style="margin-right: 20px;">
+              <div class="sub__region_wrap">
+                <img class="sub__region_logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAALMSURBVHgBtVVNTBNREJ5tX/jxJ7vVBhPUZsEDepC0V8WARo2JRDbEg3Lw54gXm3AQTtueEGMiaCInhYt4MBGIoImaWBKMF5NtghH0AHWNIljsbhSwhXad2dKCtS1tbL9kks682fmmM+/NcJAN0qAAFua2by+tD/5cEQEMUbtfRycaip/juKFYLDZss9kCmUJY0hmv9Smi/eLzV/y28pDDXia3Ne5pcNhLxA0uAkqDYRjdSDKj63pfKBQS08XiUg3o6P4UjMj1XkXQl1ah81w1tJ6shMauCRj/oMPscS1dHDAiK9ryyJh338v+7swEzU88p1122WEvhd4XX01TXQ0PRESiLoRh6nEbZIMBnPcATHkS+nqJmkfcyCdPfF6EgdfzSTNlzW9hZvBcwIEhv4ca97pOkJ6JYIkqB/duFdolB/DlDK7c+wj6chRaT1RCy+EKuD6smsTT8w82Z2FMsw3edlHzGenO6nLZH/glUPb6UpT+ZzJjNRiGCXURRpUfpr5jpBdyAF2CPpSj3Fr2M4kTKgeBar5RT9jWrmlOwFtmY8oNV9OFu5NmlhSMmkqg2scJrFim3dj0LyZBVJ3NmQAbcJVVVZRJLYd2QYc6bRJ0nq8mbjji8ZsB2884zD4MjM+hPQzfayXIAw1MuvnOuRo1TE0N/oaOh3GiRIlGlQVs7lxSzxMih9fTyOeLzd5BKjhN0/IiyBf00AJQPGjFJvCzhVrJF8NuQxFgYdYhbgacQhiWQ1AE4OCrslSBn+avDwoOox+nanwWIdPlnUN3FGBWAQqB1ai2+OatF7o61vcBLRrcTregAMA4bp7ne+h3ch/gaKX154H/BMVIBDf1VIdvj566I6NjMq7AvMrFlTCtrPGYp+LsqZ6/7OmcJ2E/zpCYjMeXIDf4qI/U1H+Is31FRFYwmvCdSOjoNOKLhBAgwfXoW4JIjwsCWqYYfwCaCB5BOBs6OgAAAABJRU5ErkJggg==" alt="rus">
+                <p class="sub__region_title">EU region</p>
+              </div>
+              <div class="sub__price_wrap">
+                <p class="sub__price_title">Price</p>
+                <p class="sub__price_subtitle">@Html.DisplayFor(model => model.Price) <span class="span">$</span>
+                </p>
+              </div>
+                      <form action="@Html.DisplayFor(model => model.Link)" method="post">
+    <input class="sub__purchase" type="submit" value="Buying" />
+        </form>
+            </div>
+          </div>
+        </div>
+</section>
+<div id="buyModal" class="modal buyModal globalModal">
+  <div class="h3">Buying</div>
+  <div class="h4">Select the type of payment:</div>
+  <br>
+</div>

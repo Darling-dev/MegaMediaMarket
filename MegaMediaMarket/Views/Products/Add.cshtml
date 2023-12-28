@@ -1,0 +1,126 @@
+﻿@model SiteASPCOm.Models.AddProductViewModel
+@{
+    Layout = "_Layout";
+}
+@{
+    string username = User.Identity.Name;
+}
+        <div class="profile__bg">
+            <div class="profile__container">
+                <div class="profile__content">
+                    <div class="profile__content-box__left">
+
+                        <div class="profile__menu">
+                            <ul>
+                                <li>
+                                    <a href="/Products/ViewAll">
+                                <img src="~/tpl/static/media/profile/clocks.svg"  asp-append-version="true" class="js-inject">
+                                <span>View Products</span>
+                            </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/Dashboard/Panel">
+                                <img src="~/tpl/static/media/profile/bonuses.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add Product</span>
+                            </a>
+                                </li>
+                                <li>
+                                    <a href="/UserAuthentication/ChangePassword">
+                                <img src="~/tpl/static/media/profile/settings.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add product</span>
+                            </a>
+                                </li>
+                                                                </li>                                
+                                <li>
+                                    <a href="/Products/ShoppingCart">
+                                <img src="~/tpl/static/media/profile/cart.svg" asp-append-version="true" class="js-inject">
+                                <span>Cart</span>
+                            </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="profile__info">
+                            <div>
+                                <span>@username</span>
+                            </div>
+                            <div class="profile__info-exit">
+                                <a href="/UserAuthentication/Logout"><img src="~/tpl/static/media/profile/exit.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__content-box__right">
+                        <h1 class="h1">Add product</h1>
+                        <div class="profile__content-box__content">
+
+                    @Html.ValidationSummary()
+                    @Html.AntiForgeryToken()
+                    <form asp-action="Create" method="post" id="loginForm" class="login_form" enctype="multipart/form-data">
+                        <label asp-for="Name">Name of product.</label>
+                        <input asp-for="Name" asp-validation-for="Name" type="text" required="" placeholder="Name of product.">
+                        <label asp-for="Link">Link</label>
+                        <input asp-for="Link" asp-validation-for="Link" type="text" required="" placeholder="Link of product.">
+                        <label asp-for="Description">Description</label>
+                        <input asp-for="Description" asp-validation-for="Description" type="text" required="" placeholder="Description of product.">
+                        <label asp-for="Price">Price</label>
+                        <input asp-for="Price" asp-validation-for="Price" type="text" required="" placeholder="Price of product.">
+                        <label asp-for="Platform">Platform</label>
+                        <input asp-for="Platform" asp-validation-for="Platform" type="text" required="" placeholder="Platform of product.">
+                        <label asp-for="CardImage">CardImage</label>
+                        <input asp-for="CardImage" type="file" accept=".jpg, .jpeg, .png" required="" placeholder="CardImage of product.">
+                        <label asp-for="BannerImage">BannerImage</label>
+                        <input asp-for="BannerImage"  type="file" accept=".jpg, .jpeg, .png" required="" placeholder="BannerImage of product.">
+                        <label asp-for="ScrImage">ScrImage</label>
+                        <input asp-for="ScrImage" type="file" accept=".jpg, .jpeg, .png" required="" placeholder="ScrImage of product.">
+                        <label asp-for="ScrImageAdd">ScrImageAdd</label>
+                        <input asp-for="ScrImageAdd"  type="file" accept=".jpg, .jpeg, .png"  required="" placeholder="ScrImageAdd of product.">
+                        <span class="error_info">User with this email already exists</span>
+                        @if (TempData["msg"] != null)
+                        {
+                            <div class="form-group header__catalog">
+                                <span class="text-info">@TempData["msg"]</span>
+                            </div>
+                        }
+                        <button type="submit" class="loginProfileMetrika">Add</button>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <style>
+/* Style for labels */
+label {
+    display: block;
+    color: #c2c6d7;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* Style for file input fields */
+input[type="file"] {
+    background-color: #0f1014;
+    color: #c2c6d7;
+    border: 1px solid #c2c6d7;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-left: 4px;
+    width: 100%;
+    margin-bottom: 10px; /* Space between each input field */
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #4a4e69; /* Updated color */
+    color: #c2c6d7;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #6b6e95; /* Slightly lighter shade for hover */
+}
+
+        </style>

@@ -1,0 +1,66 @@
+.header.active {
+    top: 40px;
+}
+
+.splash__block {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 100%;
+    overflow: hidden;
+    display: none;
+    padding: 10px;
+    text-align: center;
+    color: #fafafd;
+    font-weight: 400;
+    z-index: 3;
+    font-size: 16px;
+    line-height: 19px;
+    background: linear-gradient( 90deg, #35b18e 0%, #3b7e6b 29.69%, #35b18e 61.37%, #309c7e 100% );
+}
+
+    .splash__block p {
+        margin: 0;
+        padding: 0;
+        width: calc(100% - 30px);
+    }
+
+    .splash__block a {
+        text-decoration: none;
+        font-weight: 500;
+        color: #fafafd;
+    }
+
+    .splash__block.active {
+        display: block;
+    }
+
+.splash__wrapper {
+    max-width: 1320px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.splash__close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    z-index: 4;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+@media screen and (max-width: 1200px) {
+    .splash__block p {
+        width: calc(100% - 40px);
+    }
+
+    .splash__close {
+        right: 20px;
+    }
+
+    .splashed .main {
+        padding-top: 130px;
+    }
+}

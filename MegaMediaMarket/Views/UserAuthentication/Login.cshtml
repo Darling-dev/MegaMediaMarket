@@ -1,0 +1,32 @@
+﻿@model SiteASPCOm.Models.DTO.LoginModel
+
+@{
+    Layout = "_Layout";
+}
+
+        <div class="login_bg">
+            <div class="login_page-wrapper">
+                <center>
+                    <a href="/">
+                        <div class="header__logo" style="margin-right:0;"></div>
+                    </a>
+                    <h1>Sing in to your account</h1>
+                    <form  asp-action="Login" method="post" id="loginForm" class="login_form">
+                        <label asp-for="Username">Username</label>
+                        <input asp-for="Username" asp-validation-for="Username" type="text" required="" id="email" placeholder="Enter username">
+                        <label asp-for="Password">Password</label>
+                        <input asp-for="Password" asp-validation-for="Password" type="password" required="" id="password" placeholder="••••••••••">
+                        <span class="error_info">Login or password is incorrect</span>
+                        @if(TempData["msg"]!=null){
+                                    <div class="msg header__catalog">@TempData["msg"]</div>
+                        }
+                        <button type="submit" class="loginProfileMetrika">Sing in</button>
+                        <a href="/profile/repair" class="login_subbtn">Forgot password?</a>
+                    </form><br><br>
+                    <div class="small_login-info">
+                        <span>Don’t have an account?</span> <a href="/UserAuthentication/Registration">Sing up</a>
+                    </div>
+                    <br><br>
+                </center>
+            </div>
+        </div>

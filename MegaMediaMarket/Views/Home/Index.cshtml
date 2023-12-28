@@ -1,0 +1,274 @@
+﻿@model List<SiteASPCOm.Models.Domain.Product>
+@{
+    Layout = "_Layout";
+}
+      <main class="main" style="margin-bottom: 0; overflow: hidden">
+        <div class="main_bg">
+          <div class="main__container">
+            <div class="main__wrapper">
+              <div class="d-flex">
+                <div class="main_bg-left">
+                  <a class="main__link" href="" target="_blank">
+                    <div class="main__discord_wrapper">
+                      <svg class="footer__image" width="24" height="23" viewBox="0 0 24 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="footer__link" fill-rule="evenodd" clip-rule="evenodd" d="M4.23244 10.4007C9.06328 8.14981 12.2792 6.65417 13.8941 5.92856C18.4903 3.87021 19.4565 3.51481 20.0776 3.5C20.2156 3.5 20.5193 3.52962 20.7263 3.70732C20.892 3.8554 20.9334 4.04791 20.961 4.19599C20.9886 4.34407 21.0162 4.65505 20.9886 4.89198C20.7401 7.70556 19.6635 14.5322 19.1114 17.6715C18.8768 19.0043 18.4213 19.4485 17.9796 19.493C17.0135 19.5818 16.2819 18.8118 15.3572 18.1602C13.8941 17.1384 13.0798 16.5017 11.6581 15.4947C10.0156 14.3397 11.0784 13.7029 12.017 12.6663C12.2654 12.3998 16.5028 8.25347 16.5856 7.88326C16.5994 7.83883 16.5994 7.66113 16.5028 7.57228C16.4062 7.48343 16.2681 7.51305 16.1577 7.54267C16.0059 7.57228 13.6871 9.23081 9.1737 12.5034C8.51118 12.9921 7.91768 13.2291 7.37939 13.2142C6.78588 13.1994 5.65409 12.8588 4.79834 12.5627C3.76315 12.2073 2.93501 12.0148 3.00402 11.3928C3.04543 11.067 3.4595 10.7413 4.23244 10.4007Z" fill="#C2C6D7"></path>
+                      </svg>
+                      <div class="main__discord"> @Localizer["Telegram"] </div>
+                    </div>
+                  </a>
+                  <p class="main__title">
+                    <span class="main__title_color">@Localizer["TitleTextColored"]</span> @Localizer["TitleText"]
+                  </p>
+                  <p class="main__subtitle"> @Localizer["TitleDesc"] </p>
+                  <h1>@Localizer["TitleKeys"]</h1>
+                  <div class="d-block d-xl-flex" style="margin-top: 25px; max-width: calc(100% - 40px)">
+                    <a class="main__link" href="/catalog">
+                      <button class="main__button_catalog">@Localizer["Catalog"]</button>
+                    </a>
+				<form method="get" asp-action="Search" class="main__button_search searchBtn catalog_search">
+					<img src="/tpl/static/media/search.svg">&nbsp;&nbsp; <input style="all: unset;"  id="searchTerm" oninput="searchOnPage()" type="text" placeholder="@Localizer["Search"]" name="SearchString" value="@ViewData["CurrentFilter"]" aria-label="Search" />
+				  </form>
+                  			<script>
+				function searchOnPage() {
+					var searchTerm = document.getElementById("searchTerm").value.toLowerCase();
+					var elements = document.querySelectorAll('.searchable');
+
+					for (var i = 0; i < elements.length; i++) {
+						var content = elements[i].textContent.toLowerCase();
+						if (content.includes(searchTerm)) {
+							elements[i].style.display = "";
+						} else {
+							elements[i].style.display = "none";
+						}
+					}
+
+					return false;
+				}
+			</script>
+                  </div>
+                  <div class="main__information">
+                    <div class="main__information_wrapper">
+                      <div class="main__information_width">
+                        <div class="main__information_logo-games"></div>
+                        <div class="main__information_wrap">
+                          <p class="main__information_title">34+</p>
+                          <p class="main__information_subtitle">@Localizer["Companies"]</p>
+                        </div>
+                      </div>
+                      <div class="main__information_width">
+                        <div class="main__information_logo-cheats"></div>
+                        <div class="main__information_wrap">
+                          <p class="main__information_title">117+</p>
+                          <p class="main__information_subtitle">@Localizer["Softwares"]</p>
+                        </div>
+                      </div>
+                      <div class="main__information_width">
+                        <div class="main__information_logo-developers"></div>
+                        <div class="main__information_wrap">
+                          <p class="main__information_title">22+</p>
+                          <p class="main__information_subtitle"> @Localizer["Providers"] </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="main_bg-right">
+                  <img src="~/tpl/static/media/home_chapter.png" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <section class="home_buy-section">
+        <div class="games__container">
+          <div class="home_buy">
+            <div class="home_buy-title" style="font-size: 58px;"> @Localizer["BuyWithColored"] <span class="home_buy-title--green">@Localizer["Pleasure"] </span>
+            </div>
+            <p class="home_buy-text">@Localizer["BenefitsTitle"] </p>
+            <div class="home_buy-list">
+              <div class="home_buy-item">
+                <img src="/tpl/1.svg" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["PersonalAccount"]</b>
+                <a class="home_buy-item_btn" href="/UserAuthentication/ChangePassword">@Localizer["AccountText"]</a>
+                <p class="home_buy-item_text">@Localizer["AccountDesc"]</p>
+              </div>
+              <div class="home_buy-item">
+                <img src="/tpl/2.svg" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["ProffesionalTechnicalSupport"]</b>
+                <a class="home_buy-item_btn">@Localizer["ContactTechnicalSupport"]</a>
+                <p class="home_buy-item_text"> @Localizer["SupportDesc"] </p>
+              </div>
+              <div class="home_buy-item">
+                <img src="/tpl/3.svg" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["DataBaseTitle"]</b>
+                <a class="home_buy-item_btn" href="/catalog">@Localizer["ViewCatalog"]</a>
+                <p class="home_buy-item_text"> @Localizer["CatalogDesc"] </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="games" style="position: relative">
+        <div class="games__gradient"></div>
+        <div class="games__container">
+          <div class="games__wrap_title">
+            <h2 class="games__title">@Localizer["PopularGames"]</h2>
+          </div>
+          <div class="games__wrap_grid"> @foreach (var product in Model) { <div class="select__games_width searchable">
+              <a class="games__link" href='@Url.Action("Details", "Products", new { id = product.Id })'>
+                <div class="games__wrap">
+                  <div class="new_games-img">
+                    <div class="new_games-imgBefore"></div>
+                    <img class="games__image" src="/sitefiles/Categories/@product.CardImagePath" alt="Escape From Tarkov" width="318" height="380">
+                    <div class="new_games-footer d-flex ai-c">
+                      <div>
+                        <div class="games__wrapper_title-wrap mb-0 pb-0">
+                          <div class="new_games-logo">
+                            <img class="games__logo" src="/sitefiles/Categories/a3K4VFAMH29JRVdjm7oUhEbY4HRxrd5D.png" alt="Escape 
+															<span>From</span> Tarkov">
+                          </div>
+                          <p class="games__logo_title">@product.Name <br>
+                            <small></small>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="ml-auto">
+                        <p class="games__wrapper_subtitle new_games-price">
+                          <small>@Localizer["MinPrice"]</small>
+                          <br> @product.Price$
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </div> }
+          </div>
+          <div class="games_center">
+            <a href="/catalog" class="viewBtn">@Localizer["ViewAll"]</a>
+          </div>
+        </div>
+      </section>
+      <section class="home_buy-section" id="guarantee">
+        <div class="games__container">
+          <div class="home_buy">
+            <div class="home_buy-top">
+              <div class="h2">@Localizer["TrustTitle"]</div>
+              <span class="ml-a">@Localizer["Slogan"] </span>
+            </div>
+            <div class="home_buy-sections">
+              <div class="home_buy-sections_section d-flex ai-c">
+                <div class="d-flex ai-c w-100">
+                  <img src="/tpl/2.1.png" />
+                  <div>
+                    <b>8.000+</b>
+                    <span>@Localizer["StatUsers"]</span>
+                  </div>
+                </div>
+              </div>
+              <div class="home_buy-sections_section d-flex ai-c">
+                <div class="d-flex ai-c w-100">
+                  <img src="/tpl/2.2.png" />
+                  <div>
+                    <b>70.000+</b>
+                    <span>@Localizer["StatSold"]</span>
+                  </div>
+                </div>
+              </div>
+              <div class="home_buy-sections_section d-flex ai-c">
+                <div class="d-flex ai-c w-100">
+                  <img src="/tpl/2.3.png" />
+                  <div>
+                    <b>100%</b>
+                    <span>@Localizer["StatMoneyBack"]</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="home_buy-list">
+              <div class="home_buy-item">
+                <img src="/tpl/1.1.png" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["Reliability"]</b>
+                <p class="home_buy-item_text"> @Localizer["ReliabilityDesc"] </p>
+              </div>
+              <div class="home_buy-item">
+                <img src="/tpl/1.2.png" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["Openness"]</b>
+                <p class="home_buy-item_text"> @Localizer["OpennesDesc"] </p>
+              </div>
+              <div class="home_buy-item">
+                <img src="/tpl/1.3.png" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["Sells"]</b>
+                <p class="home_buy-item_text"> @Localizer["SellsDesc"] </p>
+              </div>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <div class="home_buy-list">
+              <div class="home_buy-item">
+                <img src="/tpl/1.4.png" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["MoneyBack"]</b>
+                <p class="home_buy-item_text"> @Localizer["MoneyBackDesc"] </p>
+              </div>
+              <div class="home_buy-item">
+                <img src="/tpl/1.5.png" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["Support"]</b>
+                <p class="home_buy-item_text"> @Localizer["SupportDescMore"] </p>
+              </div>
+              <div class="home_buy-item">
+                <img src="/tpl/1.6.png" />
+                <br />
+                <b class="home_buy-item_title">@Localizer["Updates"]</b>
+                <p class="home_buy-item_text"> @Localizer["UpdatesDesc"] </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main_mask" style="display: none">
+        <div class="place__container">
+          <img src="~/tpl/static/media/new.svg" alt="" />
+          <br />
+          <br />
+          <div class="place__title">Функции и бонусы в Вашем аккаунте</div>
+          <span>Создайте аккаунт, чтобы иметь доступ к своей истории покупок, получить доступ <br />к реферальной системе, бонусам покупок и остальным функциям. </span>
+          <br />
+          <br />
+          <a class="place__link" href="/catalog">
+            <button class="place__button">Создать аккаунт</button>
+          </a>
+          <br />
+          <br />
+          <span>Уже имеется аккаунт? <a href="#">Войти</a>
+          </span>
+        </div>
+      </section>
+      <section class="place">
+        <div class="place__container d-flex">
+          <div class="place__wrap">
+            <div class="place__title">@Localizer["Explore"]</div>
+            <span>@Localizer["ExploreDesc"]</span>
+            <a class="place__link" href="/catalog">
+              <button class="place__button">@Localizer["ExploreCatalog"]</button>
+            </a>
+          </div>
+          <div class="place__container-right">
+            <img src="~/tpl/static/media/home_spheres.png" alt="" />
+          </div>
+        </div>
+      </section>

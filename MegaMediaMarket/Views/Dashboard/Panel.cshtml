@@ -1,0 +1,85 @@
+﻿@model SiteASPCOm.Models.AddProductViewModel
+@{
+    Layout = "_Layout";
+}
+@{
+    string username = User.Identity.Name;
+}
+        <div class="profile__bg">
+            <div class="profile__container">
+                <div class="profile__content">
+                    <div class="profile__content-box__left">
+
+                        <div class="profile__menu">
+                            <ul>
+                                <li class="">
+                                    <a href="/profile/history">
+                                <img src="~/tpl/static/media/profile/clocks.svg"  asp-append-version="true" class="js-inject">
+                                <span>Purchase History</span>
+                            </a>
+                                </li>
+                                <li class="">
+                                    <a href="/Dashboard/Panel">
+                                <img src="~/tpl/static/media/profile/bonuses.svg"  asp-append-version="true" class="js-inject">
+                                <span>Add Product</span>
+                            </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/Dashboard/Display">
+                                <img src="~/tpl/static/media/profile/settings.svg"  asp-append-version="true" class="js-inject">
+                                <span>Account settings</span>
+                            </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <div class="profile__info">
+                            <div>
+                                <span>@username</span>
+                            </div>
+                            <div class="profile__info-exit">
+                                <a href="/UserAuthentication/Logout"><img src="~/tpl/static/media/profile/exit.svg" alt=""></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile__content-box__right">
+                        <h1 class="h1">Account settings</h1>
+                        <div class="profile__content-box__content">
+
+                    @Html.ValidationSummary()
+                    @Html.AntiForgeryToken()
+                    <form asp-action="Create" method="post" id="loginForm" class="login_form" enctype="multipart/form-data">
+                        <label asp-for="Name">Name of product.</label>
+                        <input asp-for="Name" asp-validation-for="Name" type="text" required="" id="email" placeholder="Name of product.">
+                        <label asp-for="Link">Link</label>
+                        <input asp-for="Link" asp-validation-for="Link" type="text" required="" id="email" placeholder="Link of product.">
+                        <label asp-for="Description">Description</label>
+                        <input asp-for="Description" asp-validation-for="Description" type="text" required="" id="email" placeholder="Description of product.">
+                        <label asp-for="Price">Price</label>
+                        <input asp-for="Price" asp-validation-for="Price" type="text" required="" id="email" placeholder="Price of product.">
+                        <label asp-for="ExpireDate">ExpireDate</label>
+                        <input asp-for="ExpireDate" asp-validation-for="ExpireDate" type="password" required="" id="password" placeholder="ExpireDate of product.">
+                        <label asp-for="Platform">Platform</label>
+                        <input asp-for="Platform" asp-validation-for="Platform" type="password" required="" id="password" placeholder="Platform of product.">
+                        <label asp-for="CardImage">Platform</label>
+                        <input asp-for="CardImage" asp-validation-for="CardImage" type="file" accept=".jpg, .jpeg, .png" required="" id="password" placeholder="CardImage of product.">
+                        <label asp-for="BannerImage">BannerImage</label>
+                        <input asp-for="BannerImage" asp-validation-for="BannerImage" type="file" accept=".jpg, .jpeg, .png" required="" id="password" placeholder="BannerImage of product.">
+                        <label asp-for="ScrImage">ScrImage</label>
+                        <input asp-for="ScrImage" asp-validation-for="ScrImage" type="file" accept=".jpg, .jpeg, .png" required="" id="password" placeholder="ScrImage of product.">
+                        <label asp-for="ScrImageAdd">ScrImageAdd</label>
+                        <input asp-for="ScrImageAdd" asp-validation-for="ScrImageAdd" type="file" accept=".jpg, .jpeg, .png"  required="" id="password" placeholder="ScrImageAdd of product.">
+                        <span class="error_info">User with this email already exists</span>
+                        @if (TempData["msg"] != null)
+                        {
+                            <div class="form-group header__catalog">
+                                <span class="text-info">@TempData["msg"]</span>
+                            </div>
+                        }
+                        <button type="submit" class="loginProfileMetrika">Add</button>
+                    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

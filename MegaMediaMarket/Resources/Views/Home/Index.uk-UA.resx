@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountDesc" xml:space="preserve">
+    <value>У нас ви отримаєте унікальну можливість створити свій особистий кабінет, де ви зможете контролювати свої покупки, отримувати кешбек за кожну покупку і користуватися іншими ексклюзивними бонусами, які зроблять ваш шопінг ще більш приємним і вигідним.</value>
+  </data>
+  <data name="AccountText" xml:space="preserve">
+    <value>Перейти до особистого кабінету</value>
+  </data>
+  <data name="BenefitsTitle" xml:space="preserve">
+    <value>Оптимізуйте свій досвід покупок та отримуйте більше користі - Насолоджуйтесь унікальними перевагами
+ &lt;br __cpp="1"&gt; нашого сайту, включаючи особистий кабінет з кешбеком, технічну підтримку і величезну &lt;br __cpp="1"&gt;
+базу даних інструментів та ігор!</value>
+  </data>
+  <data name="BuyWithColored" xml:space="preserve">
+    <value>Купуйте з</value>
+  </data>
+  <data name="Catalog" xml:space="preserve">
+    <value>Каталог</value>
+  </data>
+  <data name="CatalogDesc" xml:space="preserve">
+    <value>Тут ви знайдете величезний вибір програмного забезпечення, включаючи інструменти та програмне забезпечення, щоб ви могли насолоджуватися новими можливостями та розширювати свій ігровий досвід. Ми постійно оновлюємо нашу базу даних, щоб ви завжди могли знайти нові та цікаві продукти для своїх розваг.</value>
+  </data>
+  <data name="Companies" xml:space="preserve">
+    <value>Компанії</value>
+  </data>
+  <data name="ContactTechnicalSupport" xml:space="preserve">
+    <value>Звернутися</value>
+  </data>
+  <data name="DataBaseTitle" xml:space="preserve">
+    <value>Величезна база даних ключів</value>
+  </data>
+  <data name="Explore" xml:space="preserve">
+    <value>Ознайомтеся з нашим каталогом</value>
+  </data>
+  <data name="ExploreCatalog" xml:space="preserve">
+    <value>Ознайомитися з каталогом</value>
+  </data>
+  <data name="ExploreDesc" xml:space="preserve">
+    <value>У нашому каталозі ви можете переглянути всі доступні продукти, ігри та вибрати відповідні.</value>
+  </data>
+  <data name="MinPrice" xml:space="preserve">
+    <value>від</value>
+  </data>
+  <data name="MoneyBack" xml:space="preserve">
+    <value>Повертаємо гроші</value>
+  </data>
+  <data name="MoneyBackDesc" xml:space="preserve">
+    <value>Ми зобов'язуємося повернути вам витрачені гроші, якщо ключ працює некоректно.</value>
+  </data>
+  <data name="Openness" xml:space="preserve">
+    <value>Відкритість</value>
+  </data>
+  <data name="OpennessDesc" xml:space="preserve">
+    <value>Ми завжди відкриті для наших клієнтів. У нас є загальний чат для клієнтів, ви завжди можете запитати покупців про нас.</value>
+  </data>
+  <data name="PersonalAccount" xml:space="preserve">
+    <value>Особистий кабінет з кешбеком</value>
+  </data>
+  <data name="Pleasure" xml:space="preserve">
+    <value>задоволенням</value>
+  </data>
+  <data name="PopularGames" xml:space="preserve">
+    <value>Популярні ігри</value>
+  </data>
+  <data name="ProffesionalTechnicalSupport" xml:space="preserve">
+    <value>Професійна технічна підтримка</value>
+  </data>
+  <data name="Providers" xml:space="preserve">
+    <value>Провайдери</value>
+  </data>
+  <data name="Reliability" xml:space="preserve">
+    <value>Надійність</value>
+  </data>
+  <data name="ReliabilityDesc" xml:space="preserve">
+    <value>Купуючи цифрові товари у нас, ви можете не турбуватися про безпеку вашого ПК, так як ми не перший рік на ринку і вся наша продукція повністю безпечна</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Пошук</value>
+  </data>
+  <data name="Sells" xml:space="preserve">
+    <value>Продажі</value>
+  </data>
+  <data name="SellsDesc" xml:space="preserve">
+    <value>Велика кількість постійних клієнтів. Ми не перший рік на ринку і маємо понад 90 000 задоволених клієнтів.</value>
+  </data>
+  <data name="Slogan" xml:space="preserve">
+    <value>Не ризикуйте своїми грошима та часом - обирайте наше програмне забезпечення
+і наші гарантії подбають про ваш успіх!</value>
+  </data>
+  <data name="Softwares" xml:space="preserve">
+    <value>Програмне забезпечення</value>
+  </data>
+  <data name="StatMoneyBack" xml:space="preserve">
+    <value>Гарантія повернення грошей</value>
+  </data>
+  <data name="StatSold" xml:space="preserve">
+    <value>Продано товарів</value>
+  </data>
+  <data name="StatUsers" xml:space="preserve">
+    <value>Зареєстрованих користувачів</value>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>Підтримка</value>
+  </data>
+  <data name="SupportDesc" xml:space="preserve">
+    <value>Наша команда професіоналів завжди готова допомогти вам з будь-якими питаннями, пов'язаними з покупками на нашому сайті. Незалежно від того, чи це продукт, замовлення або інші технічні питання, ми тут, щоб допомогти вам отримати найкращий сервіс та підтримку.</value>
+  </data>
+  <data name="SupportDescMore" xml:space="preserve">
+    <value>Якщо у вас виникли труднощі із запуском програм або вам потрібна допомога в його налаштуванні, то ми вам допоможемо!</value>
+  </data>
+  <data name="Telegram" xml:space="preserve">
+    <value>Приєднуйтесь до нашого чату в Telegram, щоб спілкуватися з користувачами</value>
+  </data>
+  <data name="TitleDesc" xml:space="preserve">
+    <value>Великий каталог приватних високоякісних ключів. Програмне забезпечення, створене досвідченими розробниками, яке зробить вашу гру продуктивнішою та комфортнішою.</value>
+  </data>
+  <data name="TitleKeys" xml:space="preserve">
+    <value>Приватні ключі для програмного забезпечення</value>
+  </data>
+  <data name="TitleText" xml:space="preserve">
+    <value>з продажу ключів до різних програм</value>
+  </data>
+  <data name="TitleTextColored" xml:space="preserve">
+    <value>Найкращий магазин</value>
+  </data>
+  <data name="TrustTitle" xml:space="preserve">
+    <value>Чому &lt;b&gt;нам можна довіряти&lt;/b&gt;?</value>
+  </data>
+  <data name="Updates" xml:space="preserve">
+    <value>Оновлення</value>
+  </data>
+  <data name="UpdatesDesc" xml:space="preserve">
+    <value>Ми постійно оновлюємо наше програмне забезпечення і пропонуємо безкоштовні оновлення всім нашим клієнтам.</value>
+  </data>
+  <data name="ViewAll" xml:space="preserve">
+    <value>Переглянути все</value>
+  </data>
+  <data name="ViewCatalog" xml:space="preserve">
+    <value>Переглянути каталог</value>
+  </data>
+</root>
